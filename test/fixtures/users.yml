@@ -1,3 +1,6 @@
-
+shekhar:
+  name: shekhar patil
+  email: patilshekhar900@gmail.com
+  password_digest: <%= User.digest('shekhar123') %>
 
 #empty
