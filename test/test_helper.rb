@@ -9,4 +9,5 @@ class ActiveSupport::TestCase
   	!session[:user_id].nil?
   end
   # Add more helper methods to be used by all tests here...
+  
 end
