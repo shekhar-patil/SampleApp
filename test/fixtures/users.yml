@@ -3,4 +3,8 @@ shekhar:
   email: patilshekhar900@gmail.com
   password_digest: <%= User.digest('shekhar123') %>
 
+ram:
+  name: ram patil
+  email: ram@gamil.com
+  password_digest: <%= User.digest('ram@123') %>
 #empty
