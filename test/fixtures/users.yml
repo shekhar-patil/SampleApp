@@ -2,11 +2,12 @@ shekhar:
   name: shekhar patil
   email: patilshekhar900@gmail.com
   password_digest: <%= User.digest('shekhar123') %>
+  admin: true 
 
 ram:
   name: ram patil
   email: ram@gamil.com
-  password_digest: <%= User.digest('ram@123') %>
+  password_digest: <%= User.digest('shekhar123') %>
 
 lana:
   name: Lana Kane
