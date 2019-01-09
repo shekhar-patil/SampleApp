@@ -7,7 +7,7 @@ Rails.application.config.action_mailer.delivery_method = :smtp
 
 if Rails.env.development?
   host = ENV['DEVELOPMENT_HOST']
-else
+elsif Rails.env.production?
   host = ENV['PRODUCTION_HOST']
 end
 
