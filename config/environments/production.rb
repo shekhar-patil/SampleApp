@@ -77,17 +77,17 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   host = 'http://sampleapptutorial777.herokuapp.com/'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['shekhar95'],
-    :password       => ENV['SS9922126108pp'],
-    :domain         => 'http://sampleapptutorial777.herokuapp.com',
-    :enable_starttls_auto => true
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: 'patilshekhar900@gmail.com',
+    password: 'GS9922126108pl',
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   # Use a different logger for distributed setups.
