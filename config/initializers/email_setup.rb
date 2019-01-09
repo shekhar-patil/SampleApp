@@ -7,7 +7,7 @@ Rails.application.config.action_mailer.delivery_method = :smtp
 
 if Rails.env.development?
   host = ENV['DEVELOPMENT_HOST']
-elsif Rails.env.production?
+else
   host = 'sampleapptutorial777.herokuapp.com'
 end
 
