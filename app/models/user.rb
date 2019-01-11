@@ -31,6 +31,7 @@ class User < ApplicationRecord
 
 	def send_password_reset_email
 		UserMailer.password_reset(self).deliver_now
+	end
 
 	def remember
 		self.remember_token = User.new_token
