@@ -53,7 +53,6 @@ class User < ApplicationRecord
 		
 		return false if reset_digest.nil?
 		return true if (reset_digest == User.resetdigest(token))
-		debugger
 	end
 
 	def password_reset_expired?
