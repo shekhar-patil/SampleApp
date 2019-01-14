@@ -12,6 +12,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
   end
 
   test "password resets" do
+    
     get new_password_reset_path
     assert_template 'password_resets/new'
     # Invalid email
