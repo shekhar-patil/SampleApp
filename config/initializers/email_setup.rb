@@ -1,5 +1,4 @@
 
-
 Rails.application.config.action_mailer.raise_delivery_errors = true
 Rails.application.config.action_mailer.perform_deliveries = true
 Rails.application.config.action_mailer.delivery_method = :smtp
@@ -9,6 +8,8 @@ if Rails.env.development?
   host = ENV['DEVELOPMENT_HOST']
 elsif Rails.env.production?
   host = ENV['PRODUCTION_HOST']
+elsif Rails.env.test?
+  host = ENV['DEVELOPMENT_HOST']
 end
 
 Rails.application.config.action_mailer.default_url_options = { host: host }
