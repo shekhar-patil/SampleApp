@@ -19,19 +19,21 @@ class User < ApplicationRecord
 																								BCrypt::Engine.cost
 		BCrypt::Password.create(string, cost: cost)
 	end
+
+	def User.resetdigest(string)
+		Digest::SHA1.hexdigest(string)
+	end
+
 	def User.new_token
 		SecureRandom.urlsafe_base64
 	end
 
 	def create_reset_digest
 		self.reset_token = User.new_token
-		update_attribute(:reset_digest , User.new_token)
+		update_attribute(:reset_token , reset_token)
+		update_attribute(:reset_digest , User.resetdigest(reset_token))
 		update_attribute(:reset_sent_at , Time.zone.now)
 	end
-
-	def password_reset_expired?
-    reset_sent_at < 2.hours.ago
-  end
 
 	def send_password_reset_email
 		UserMailer.password_reset(self).deliver_now
@@ -47,6 +49,16 @@ class User < ApplicationRecord
 		return false if digest.nil?
 	  BCrypt::Password.new(digest).is_password?(token)
 	end
+	def reset_authenticated?(reset_digest, token)
+		
+		return false if reset_digest.nil?
+		return true if (reset_digest == User.resetdigest(token))
+		debugger
+	end
+
+	def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 
 	def forget
 		update_attribute(:remember_token , nil)
