@@ -274,7 +274,10 @@ input {
     margin-top: 5px;
   }
 }
-
+img.micropost-image{
+  width: 500px;
+  height: auto;
+}
 aside {
   textarea {
     height: 100px;
