@@ -6,6 +6,7 @@ shekhar:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+
 ram:
   name: ram patil
   email: ram@gamil.com
