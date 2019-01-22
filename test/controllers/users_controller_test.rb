@@ -4,7 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   
   def setup
     @other_user = users(:shekhar)
-    @user = users(:ram)
+    @user = users(:archer)
   end
   
   test "should get new" do
@@ -78,5 +78,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user)
     assert_redirected_to login_url
   end
-  
+
 end
