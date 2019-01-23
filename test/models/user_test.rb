@@ -86,7 +86,7 @@ class UserTest < ActiveSupport::TestCase
 	end
 
 	test "feed should have the right posts" do
-		michael = users(:michael)
+		michael = users(:shekhar)
 		archer  = users(:archer)
 		lana    = users(:lana)
 		# Posts from followed user
