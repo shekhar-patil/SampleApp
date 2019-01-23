@@ -99,6 +99,14 @@ class User < ApplicationRecord
     following.delete(other_user)
   end
 
+	# Returns a user's status feed.
+	def feed
+		following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+	end
+
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
